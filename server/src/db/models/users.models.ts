@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  catalogue: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Catalogue',
+  }
 });
 
 const User = mongoose.model("User", userSchema);

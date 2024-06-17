@@ -1,8 +1,9 @@
 import { User } from './models/users.models';
 import UserType from '../types/users.types';
+import { createCatalogueForUserAsync } from './catalogues.db';
 
 const getUsersAsync = async (): Promise<UserType[]> => {
-    const users = await User.find();
+    const users = await User.find().populate([{ path: 'catalogue' }]);
     return users.map(u => u.toObject() as UserType);
 };
 
@@ -19,7 +20,13 @@ const getUserByIdAsync = async (id: string): Promise<UserType | null> => {
 const createUserAsync = async (userToCreate: UserType): Promise<UserType | null> => {
     const user = new User({ ...userToCreate });
     const createdUser = await user.save();
-    return createdUser.toObject() as UserType;
+    const createdCatalogue = await createCatalogueForUserAsync(user._id);
+    await User.updateOne(
+        { _id: { $eq: createdUser._id } },
+        { $set: { catalogue: createdCatalogue?._id } }
+    );
+    const updatedUser = await User.findOne({ _id: { $eq: createdUser._id } });
+    return updatedUser?.toObject() as UserType;
 };
 
 export {
