@@ -1,4 +1,4 @@
-import CatalogueType from "./catalogues.types";
+import { CatalogueType } from "./catalogues.types";
 
 type UserType = {
     _id?: string,
@@ -8,4 +8,4 @@ type UserType = {
     catalogue?: CatalogueType | string,
 };
 
-export default UserType
+export { UserType }

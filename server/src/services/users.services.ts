@@ -1,4 +1,4 @@
-import UserType from '../types/users.types';
+import { UserType } from '../types/users.types';
 import { 
     getUsersAsync as dbGetUsersAsync,
     getUserByIdAsync as dbGetUserByIdAsync,

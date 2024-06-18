@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import CatalogueType from "../types/catalogues.types";
+import { CatalogueType } from "../types/catalogues.types";
 import { Catalogue } from "./models/catalogues.models";
 import { Document } from 'mongoose';
 

@@ -1,6 +1,6 @@
 import { User } from './models/users.models';
-import UserType from '../types/users.types';
-import CatalogueType from '../types/catalogues.types';
+import { UserType } from '../types/users.types';
+import { CatalogueType } from '../types/catalogues.types';
 import { createCatalogueForUserAsync } from './catalogues.db';
 import { Document } from 'mongoose';
 

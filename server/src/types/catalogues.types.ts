@@ -1,4 +1,5 @@
-import UserType from "./users.types";
+import { QuizLanguageType, QuizProficiencyLevelType, QuizQuestionCategoryType } from "./helpers.types";
+import { UserType } from "./users.types";
 
 type OptionType = {
     text: string,
@@ -8,7 +9,7 @@ type OptionType = {
 
 type QuestionType = {
     text: string, 
-    category: 'multiple-choice' | 'true-false' | 'fill-in-the-blank' | 'text-answer',
+    category: QuizQuestionCategoryType,
     options?: OptionType[],
     responseText?: string,
     creditedMark: number,
@@ -17,8 +18,9 @@ type QuestionType = {
 
 type QuizType = {
     date: Date,
-    language: 'english' | 'japanese' | 'tagalog',
-    proficiencyLevel: 'beginner' | 'intermediate' | 'advanced',
+    language: QuizLanguageType,
+    proficiencyLevel: QuizProficiencyLevelType,
+    keywords: string[],
     questions: QuestionType[],
 };
 
@@ -28,4 +30,9 @@ type CatalogueType = {
     quizzes: QuizType[]
 };
 
-export default CatalogueType
+export { 
+    CatalogueType, 
+    QuizType, 
+    QuestionType,
+    OptionType
+}

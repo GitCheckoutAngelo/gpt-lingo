@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import router from './routes';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
+import { testOpenAiAsync } from './openai/quizzes.openai';
 
 // enable dotenv
 dotenv.config();

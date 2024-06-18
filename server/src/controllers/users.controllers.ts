@@ -4,7 +4,7 @@ import {
     getUserByIdAsync as serviceGetUserByIdAsync,
     createUserAsync as serviceCreateUserAsync,
 } from '../services/users.services';
-import UserType from '../types/users.types';
+import { UserType } from '../types/users.types';
 import { CreateUserDto } from '../dtos/users.dtos';
 
 const getUsersController = async (req: Request, res: Response) => {
